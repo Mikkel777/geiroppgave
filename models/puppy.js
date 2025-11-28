@@ -5,8 +5,7 @@ const puppySchema = new mongoose.Schema({
     puppyPower: Number,
     bestFriend: String,
     birthYear: Number,
-    imageUrl: String,
-
+    imageUrl: String
 });
 
 module.exports = mongoose.model('Puppy', puppySchema);
