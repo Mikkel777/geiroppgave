@@ -1,4 +1,4 @@
-const Puppy = require('../models/puppy');
+const Puppy = require('../models/Puppy');
 
 exports.getPuppy = async (req, res)=> {
     const name = req.params.name;
