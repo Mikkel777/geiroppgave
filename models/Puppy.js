@@ -6,6 +6,6 @@ const puppySchema = new mongoose.Schema({
     bestFriend: String,
     birthYear: Number,
     imageUrl: String
-}, { collection: "rainbow-puppies"});
+}, { collection: "puppies"});
 
 module.exports = mongoose.model('Puppy', puppySchema);
