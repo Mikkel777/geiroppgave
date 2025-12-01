@@ -1,12 +1,15 @@
 const Puppy = require('../models/Puppy');
 
 exports.getPuppy = async (req, res)=> {
-    const name = req.params.name;
-    const puppy = await Puppy.findOne({name});
+    try {
+        const puppy = await Puppy.findOne({ name: req.params.navn});
 
-    if(!Puppy) {
-        return res.status(404).send("Puppy is gone");
+        if (!puppy) {
+            return res.status(404).render('error', {message: "puppies finnes ikke?"});
+        }
+
+        res.render('puppy', {puppy});
+    } catch (err) {
+        res.status(500).render('error', {message: "error"});
     }
-
-    res.render('puppy', {puppy});
 };
