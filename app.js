@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const puppyController = require('./controllers/puppyController');
 
 const app = express();
 
