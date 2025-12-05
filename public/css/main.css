@@ -17,18 +17,25 @@ h1 {
     font-size: 22px;
     text-align: right;
     text-decoration: none;
-    color: #1257be;
-    background-color: #FFFFFF;
-    padding: 12px;
+    padding: 16px;
+    color: white;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 300% 100%;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+    100% { background-position: 100% 0%; }
+    0% { background-position: 0% 0%; }
 }
 
 .buttonPuppy:hover {
-    transform: scale(1.03);
-    background-color: #1257be;
-    color: white;
+    transform: scale(1.05);
+    background-color: #FFFFFF;
+    color: #FFFFFF;
 }
 
 footer {
