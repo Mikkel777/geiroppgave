@@ -1,0 +1,18 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alle puppies</title>
+</head>
+<body>
+    <h1>Alle puppies</h1>
+
+    <ul>
+        <% puppies.forEach(p => { %>
+            <li>
+                <a href="/puppy/<%= p.name %>"><%=p.name%></a>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
