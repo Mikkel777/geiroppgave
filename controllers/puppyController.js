@@ -3,7 +3,7 @@ const Puppy = require('../models/Puppy');
 exports.getEveryPuppy = async (req, res) => {
     try {
         const puppies = await Puppy.find();
-        res.join(puppies);
+        res.json(puppies);
     } catch (err) {
         res.status(500).json({error: err.message});
     }
