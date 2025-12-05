@@ -10,7 +10,7 @@
     <ul>
         <% puppies.forEach(p => { %>
             <li>
-                <a href="/puppy/<%= p.name %>"><%=p.name%></a>
+                <a href="/api/puppy/<%= p.name %>"><%= p.name %></a>
             </li>
         <% }) %>
     </ul>
