@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <h1>Alle puppies</h1>
+    <h1 class="regnbueTekst">Alle puppies</h1>
 
     <% puppies.forEach(p => { %>
         <a href="/api/puppy/<%= p.name %>"><%= p.name %></a>
     <% }) %>
     <footer>
-        <a href="/">tilbake til homepage</a>
+        <a href="/" class="buttonTakeback">tilbake til homepage</a>
     </footer>
 </body>
 </html>

@@ -13,18 +13,19 @@ h1 {
 }
 
 .regnbueTekst {
-    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    background: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
     color: transparent;
     font-size: 40px;
     font-weight: bold;
     -webkit-background-clip: text;
     background-clip: text;
-    text-shadow: 0 3px 3px rgba(0,0,0,0.15);
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 .buttonPuppy {
     display: inline-block;
     font-size: 22px;
+    margin-top: 45px;
     text-align: right;
     text-decoration: none;
     padding: 16px;
@@ -44,6 +45,28 @@ h1 {
 
 .buttonPuppy:hover {
     transform: scale(1.07);
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+/* FOOTER CSS UNDER */
+.buttonTakeback {
+    display: inline-block;
+    font-size: 20px;
+    text-align: right;
+    text-decoration: none;
+    padding: 9px;
+    color: white;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 300% 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    animation: rainbow 3s linear infinite;
+}
+
+.buttonTakeback:hover {
+    transform: scale(1.04);
     background-color: #FFFFFF;
     color: #FFFFFF;
 }
