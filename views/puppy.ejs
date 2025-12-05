@@ -6,9 +6,11 @@
 </head>
 <body>
     <h1><%= puppy.name %></h1>
-    <img src="<%= puppy.imageUrl %>" width="300">
+    <img src="<%= puppy.imageUrl %>" alt="<%=puppy.name%>" width="300">
     <p>Puppy power: <%= puppy.puppyPower %></p>
     <p>Bestevenn: <%= puppy.bestFriend %></p>
     <p>Fødselsår: <%= puppy.birthYear %></p>
+
+    <a href="/api/puppes">Tilbake til pupes</a>
 </body>
 </html>
