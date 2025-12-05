@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(225, 225, 225);
+    background-color: white;
     text-align: center;
     font-family: sans-serif;
     padding-top: 80px;
@@ -10,6 +10,16 @@ h1 {
     font-size: 42px;
     color: #333;
     margin-bottom: 40px;
+}
+
+.regnbueTekst {
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    color: transparent;
+    font-size: 40px;
+    font-weight: bold;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 3px 3px rgba(0,0,0,0.15);
 }
 
 .buttonPuppy {
@@ -33,7 +43,7 @@ h1 {
 }
 
 .buttonPuppy:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
     background-color: #FFFFFF;
     color: #FFFFFF;
 }
