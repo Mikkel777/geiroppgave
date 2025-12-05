@@ -9,7 +9,7 @@
     <h1 class="regnbueTekst">Alle puppies</h1>
 
     <% puppies.forEach(p => { %>
-        <a href="/api/puppy/<%= p.name %>"><%= p.name %></a>
+        <a href="/api/puppy/<%= p.name %>" class="allPuppiesButton"><%= p.name %></a>
     <% }) %>
     <footer>
         <a href="/" class="buttonTakeback">tilbake til homepage</a>

@@ -6,16 +6,12 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <h1><%= puppy.name %></h1>
+    <h1 class="regnbueTekst"><%= puppy.name %></h1>
     <img src="<%= puppy.imageUrl %>" alt="<%=puppy.name%>" width="300">
     <p>Puppy power: <%= puppy.puppyPower %></p>
     <p>Bestevenn: <%= puppy.bestFriend %></p>
     <p>Fødselsår: <%= puppy.birthYear %></p>
 
-    <a href="/puppies">Tilbake til puppes</a>
-
-    <footer>
-        <a href="/" class="buttonTakeback">tilbake til homepage</a>
-    </footer>
+    <a href="/puppies" class="buttonTakeback">Tilbake til puppes</a>
 </body>
 </html>
