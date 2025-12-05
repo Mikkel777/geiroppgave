@@ -1,3 +1,31 @@
 body {
-    background-color: red;
+    background-color: rgb(225, 225, 225);
+    text-align: center;
+    padding-top: 80px;
+    margin: 0;
+}
+
+h1 {
+    font-size: 42px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.buttonPuppy {
+    display: inline-block;
+    font-size: 22px;
+    text-align: right;
+    text-decoration: none;
+    color: #1257be;
+    background-color: #FFFFFF;
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.buttonPuppy:hover {
+    transform: scale(1.03);
+    background-color: #1257be;
+    color: white;
 }
