@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Puppy = require('./models/Puppy');
+const Puppy = require('../models/Puppy');
 
 router.get('/puppies', async(req, res)=> {
     try {
@@ -19,7 +19,7 @@ router.get('/puppies/:name', async (req, res)=> {
         if (!puppy) {
             return res.status(404).json({error: "puppy gone"});
         }
-        res.json(Puppy);
+        res.json(puppy);
     } catch (err) {
         res.status(500).json({error: err.message});
     }
