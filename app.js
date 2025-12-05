@@ -1,25 +1,34 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const puppyRoutes = require('./routes/puppyRoutes');
+const Puppy = require('./models/Puppy');
 const path = require('path');
 
 const app = express();
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', __dirname + '/views');
 
-app.use(express.json());
+app.use('/api', puppyRoutes);
+
+app.get('/puppies', async (req, res) => {
+    try {
+        const puppies = await Puppy.find();
+        res.render('puppyList', { puppies});
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
 
 mongoose.connect("mongodb://10.12.7.102:27017/rainbow-puppies")
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.error(err));
 
-app.use('/api', puppyRoutes);
 
 app.use('/img', express.static('/var/www/rainbow-puppies/img'));
 
 app.get('/', (req, res) => {
-    res.send('');
+    res.render('homepage');
 });
 
 app.listen(3000, ()=> {
