@@ -37,5 +37,5 @@ app.listen(3000, ()=> {
 });
 
 app.use((req, res) => {
-    res.status(404).send("<h1>404 – Denne siden finnes ikke</h1>");
+    res.render('404');
 });
