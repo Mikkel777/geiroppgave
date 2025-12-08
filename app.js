@@ -1,14 +1,22 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const puppyRoutes = require('./routes/puppyRoutes');
+const app = express();
 const Puppy = require('./models/Puppy');
 const path = require('path');
+const session = require('express-session');
 
-const app = express();
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.set('views', __dirname + '/views');
+app.use(session({
+    secret: 'supersecretkey',
+    resave: false,
+    saveUninitialized: true,
+}));
 
 app.use('/api', puppyRoutes);
 
