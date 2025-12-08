@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const puppyRoutes = require('./routes/puppyRoutes');
+const login = require('./routes/login');
 const app = express();
 const Puppy = require('./models/Puppy');
 const path = require('path');
@@ -8,16 +9,18 @@ const session = require('express-session');
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
 app.set('views', __dirname + '/views');
 app.use(session({
     secret: 'supersecretkey',
     resave: false,
     saveUninitialized: true,
 }));
-
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/login', login);
+app.use('/puppies', puppyRoutes);
 app.use('/api', puppyRoutes);
 
 app.get('/puppies', async (req, res) => {
