@@ -18,4 +18,8 @@ const autentiser = async (req, res, next) =>{
         res.redirect('/login');
         return;
     }
+    console.info('Valp autentisert.');
+    next();
 };
+
+module.exports = { autentiser };
