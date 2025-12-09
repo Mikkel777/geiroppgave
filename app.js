@@ -2,40 +2,27 @@ const express = require('express');
 const mongoose = require('mongoose');
 const puppyRoutes = require('./routes/puppyRoutes');
 const login = require('./routes/login');
-const app = express();
 const Puppy = require('./models/Puppy');
 const path = require('path');
 const session = require('express-session');
+
+const app = express();
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(express.static('public'));
 
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
 app.use(session({
     secret: 'supersecretkey',
     resave: false,
     saveUninitialized: true,
 }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/login', login);
-app.use('/puppies', puppyRoutes);
-app.use('/api', puppyRoutes);
 
-app.get('/puppies', async (req, res) => {
-    try {
-        const puppies = await Puppy.find();
-        res.render('puppyList', { puppies});
-    } catch (err) {
-        res.status(500).send(err.message);
-    }
-});
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
 
-mongoose.connect("mongodb://10.12.7.102:27017/rainbow-puppies")
-    .then(() => console.log("MongoDB connected"))
-    .catch(err => console.error(err));
-
+app.use('/', login);
+app.use('/', puppyRoutes);
 
 app.use('/img', express.static('/var/www/rainbow-puppies/img'));
 
@@ -43,10 +30,14 @@ app.get('/', (req, res) => {
     res.render('homepage');
 });
 
-app.listen(3000, ()=> {
-    console.log("Serveren er online på localhost:3000!");
-});
-
 app.use((req, res) => {
     res.render('404');
+});
+
+mongoose.connect("mongodb://10.12.7.102:27017/rainbow-puppies")
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.error(err));
+
+app.listen(3000, ()=> {
+    console.log("Serveren er online på localhost:3000!");
 });
