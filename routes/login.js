@@ -1,13 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const loginController = require('../controllers/loginPuppy');
+
+
+const {
+    getlogin,
+    postlogin,
+    logout,
+    profile
+} = require ('../controllers/loginPuppy');
 
 router.get('/login', getlogin);
-
 router.post('/login', postlogin);
-
-router.get('/profile', authenticate, profile);
-
-router.post('/logout', logout);
+router.get('/logout', logout);
+router.get('/profile', profile);
 
 module.exports = router;
