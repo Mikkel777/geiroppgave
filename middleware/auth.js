@@ -1,25 +1,33 @@
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
 
-//AUTH
-const autentiser = async (req, res, next) =>{
-    console.info("Autentiserer bruker...");
-    const user = req.session.user;
-    if(!user) {
-        console.warn("Autentisering feilet. Sender til Login page");
-        res.redirect('/login');
-        return;
-    }
+const jwtSecret = process.env.JWT_SECRET || 'endre';
 
-//USER
-    const brukerFinnes = await user.findOne({username: user.username});
-    if (!brukerFinnes) {
-        console.warn('Valpebruker ble ikke funnet i databasen. Sender til Login Page');
-        res.session.destroy();
-        res.redirect('/login');
-        return;
+const authenticateJwt = async (req, res, next) => {
+    try {
+        let token = null;
+        if (req.cookies && req.cookies.token) token = req.cookies.token;
+        else if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+            token = req.headers.authorization.split('')[1];
+        }
+        if(!token) {
+            return res.redirect('/login');
+        }
+
+        const decoded = jwt.verify(token, jwtSecret);
+        const user = await user.findById(decoded.id).lean();
+        if(!user) {
+            res.clearCookie('token');
+            return res.redirect('/login');
+        }
+
+        req.user = {id:user._id, username: user.username};
+        next();
+    } catch (err) {
+        console.warn('JWT auth feilet', err.message);
+        res.clearCookie('token');
+        return res.redirect('/login');
     }
-    console.info('Valp autentisert.');
-    next();
 };
 
-module.exports = { autentiser };
+module.exports = {authenticateJwt};
