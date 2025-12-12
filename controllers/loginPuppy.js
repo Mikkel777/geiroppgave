@@ -7,7 +7,7 @@ const jwtExpiresIn = process.env.JWT_EXPIRES_IN || '1h';
 module.exports.getlogin = (req, res) => {
     res.render('login', {flash:req.session?.flash || null});
 };
-
+//post
 module.exports.postlogin = async (req, res) => {
     const {username, password} = req.body;
 
@@ -38,4 +38,15 @@ module.exports.postlogin = async (req, res) => {
         req.session.flash = {type: 'error', message: 'server problem'};
         res.redirect('/login');
    }
+};
+//logout
+module.exports.logout = (req, res) => {
+    res.clearCookie('token');
+    if (req.session) req.session.destroy(()=> {});
+    res.redirect('/login');
+};
+
+
+module.exports.profile = (req, res) => {
+    res.render('profile', {user: req.user});
 };
