@@ -5,6 +5,7 @@ const login = require('./routes/login');
 const Puppy = require('./models/Puppy');
 const path = require('path');
 const session = require('express-session');
+require('dotenv').config();
 
 const app = express();
 
