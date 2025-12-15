@@ -25,8 +25,6 @@ app.set('views', __dirname + '/views');
 app.use('/', login);
 app.use('/', puppyRoutes);
 
-app.use('/img', express.static('/var/www/rainbow-puppies/img'));
-
 app.get('/', (req, res) => {
     res.render('homepage');
 });
@@ -34,10 +32,6 @@ app.get('/', (req, res) => {
 app.use((req, res) => {
     res.render('404');
 });
-
-mongoose.connect("mongodb://10.12.7.102:27017/rainbow-puppies")
-    .then(() => console.log("MongoDB connected"))
-    .catch(err => console.error(err));
 
 app.listen(3000, ()=> {
     console.log("Serveren er online på localhost:3000!");
