@@ -38,6 +38,11 @@ h1 {
     animation: rainbow 3s linear infinite;
 }
 
+.buttonPuppy a {
+    text-decoration: none;
+    color: white;
+}
+
 @keyframes rainbow {
     100% { background-position: 100% 0%; }
     0% { background-position: 0% 0%; }
