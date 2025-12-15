@@ -3,6 +3,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+        <style>
+        body {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            display: flex;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login {
+            background-color: rgb(255, 255, 255, 0.8);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login h2 {
+            background: linear-gradient(to left, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            color: transparent;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .formGruppe {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .formGruppe label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .formGruppe input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .formGruppe input:focus {
+            border-color: #ff6b6b;
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to left, red, orange, yellow, green, blue, indigo, violet);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.03);
+        }
+    </style>
 </head>
 <body>
 <section class="login">
