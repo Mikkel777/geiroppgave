@@ -15,6 +15,6 @@ const auth = require('../middleware/auth');
 router.get('/login', loginController.getlogin);
 router.post('/login', loginController.postlogin);
 router.get('/logout', loginController.logout);
-router.get('/profile', authenticateJwt, loginController.profile);
+router.get('/profile', loginController.profile);
 
 module.exports = router;
