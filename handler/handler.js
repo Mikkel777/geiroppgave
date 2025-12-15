@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb://10.12.7.102:27017/rainbow-puppies")
-        console.log("MongoDB koblet tiil");
+        await mongoose.connect("mongodb://10.12.7.102:27017/rainbow-puppies");
+        console.log("Mongodb tilkoblet!");
     } catch (err) {
         console.error("Error med mongodb kobling", err.message);
         process.exit(1);
