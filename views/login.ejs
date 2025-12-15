@@ -27,6 +27,11 @@
         }
 
         .login h2 {
+            background: linear-gradient(to left, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            color: transparent;
             margin-bottom: 25px;
             font-size: 1.8rem;
         }
@@ -61,17 +66,16 @@
         button {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+            background: linear-gradient(to left, red, orange, yellow, green, blue, indigo, violet);
             border: none;
             border-radius: 8px;
             color: #fff;
             font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
         }
 
         button:hover {
-            transition: ease-in 0.2s;
             transform: scale(1.03);
         }
     </style>
